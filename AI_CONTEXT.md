@@ -110,7 +110,15 @@ API → Service → Repository → Storage
 
 ### セキュリティフック（pre-commit）
 
-`.pre-commit-config.yaml` をルートにコピーして `pre-commit install` すること。
+以下の手順でセットアップする：
+
+```sh
+cp docs/dev-charter/.pre-commit-config.yaml .
+cp docs/dev-charter/.gitleaks.toml .
+pre-commit install
+pre-commit run --all-files  # 動作確認
+```
+
 以下が自動チェックされる：
 
 | チェック | ツール |
