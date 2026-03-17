@@ -84,6 +84,13 @@ API → Service → Repository → Storage
 
 ## プロジェクト固有ルール
 
+### AI コンテキスト優先順位
+
+1. **タスクコンテキスト**（Issue / Pull Request の内容）
+2. **プロジェクトコンテキスト**（本ファイル・以下の読み込みファイル群）
+3. **開発憲章**（`docs/dev-charter/`）
+4. **グローバルコンテキスト**
+
 ### AI 読み込み順序
 
 1. `AI_CONTEXT.md`（本ファイル）
