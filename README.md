@@ -1,4 +1,4 @@
-# AI Native Template (Python Closed)
+# Python Closed Template
 
 > **This file is the English reference.**
 > The canonical version (Japanese) is [README-jp.md](README-jp.md).

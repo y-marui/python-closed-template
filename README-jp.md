@@ -1,4 +1,4 @@
-# AI Native Template（Python クローズド）
+# Python クローズド Template
 
 > **このファイルは正本（日本語版）です。**
 > 英語版（参照）は [README.md](README.md) を参照してください。
