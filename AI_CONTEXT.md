@@ -99,6 +99,10 @@ API → Service → Repository → Storage
 4. `docs/architecture.md`（詳細が必要な場合のみ）
 5. `docs/guardrails.md`
 
+### マネタイズ
+
+現時点でマネタイズ計画なし。計画が生じた場合は `MONETIZATION.md` を作成し、本ファイルに概要を追記すること。
+
 ### ドキュメント権限
 
 - `docs/` は人間が書き・読む仕様書。**AI は参照のみ、直接編集しない**
