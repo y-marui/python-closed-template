@@ -10,6 +10,16 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install poetry
+      # プライベートパッケージ（pyproject.toml に https://github.com/[username]/python-* を含む場合）:
+      # Repository secrets に GH_TOKEN（PAT の値）を登録したうえで以下のステップを追加してください。
+      # PAT はソースにコミットせず secrets 経由で注入します。
+      # 詳細: README-jp.md「プライベートパッケージの PAT 設定」
+      #
+      # - name: pyproject.toml の git URL に PAT を注入（CI のみ・コミットされない）
+      #   run: |
+      #     sed -i \
+      #       "s|https://github.com/[username]/python-|https://${{ secrets.GH_TOKEN }}@github.com/[username]/python-|g" \
+      #       pyproject.toml
       - run: poetry install
       - run: poetry run ruff check .
       - run: poetry run mypy src

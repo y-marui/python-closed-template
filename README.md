@@ -47,6 +47,47 @@ See [README-jp.md](README-jp.md) for full documentation.
 
 ---
 
+## Private Package PAT Configuration
+
+When `pyproject.toml` references private GitHub repositories, a PAT (Personal Access Token) may be required.
+**Never write the PAT directly in source code.** Inject it per environment as follows.
+
+### Local Development (git config)
+
+```sh
+# Route authentication for https://github.com/[username]/python-* through PAT
+# Adjust [username] and the python- prefix to match your project
+git config --local \
+  url."https://github_pat_xxxx@github.com/[username]/python-".insteadOf \
+  "https://github.com/[username]/python-"
+```
+
+- Replace `github_pat_xxxx` with your actual PAT
+- The `python-` prefix applies to all `python-*` private packages at once
+- Stored in `.git/config`, never committed
+
+### GitHub Actions CI
+
+Register in **Settings → Secrets and variables → Actions → Repository secrets**:
+
+| Secret name | Value |
+|---|---|
+| `GH_TOKEN` | `github_pat_xxxx` (the PAT value itself) |
+
+Add to `ci.yml` before `poetry install`:
+
+```yaml
+- name: Inject PAT into pyproject.toml git URLs (CI only, not committed)
+  run: |
+    sed -i \
+      "s|https://github.com/[username]/python-|https://${{ secrets.GH_TOKEN }}@github.com/[username]/python-|g" \
+      pyproject.toml
+```
+
+See [README-jp.md](README-jp.md) for full details (Japanese canonical).
+
+---
+
 ## License
 
 All Rights Reserved — [LICENSE](LICENSE)
