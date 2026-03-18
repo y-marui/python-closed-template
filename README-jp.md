@@ -158,6 +158,54 @@ Issue 作成 → feature ブランチ → AI 実装 → PR → レビュー → 
 
 ---
 
+## プライベートパッケージの PAT 設定
+
+`pyproject.toml` に `https://github.com/` の private リポジトリを依存として記載する場合、
+PAT（Personal Access Token）が必要になることがある。
+**PAT はソースコードに書き込まない**こと。以下の方法で環境ごとに注入する。
+
+### ローカル開発環境（git config）
+
+```sh
+# https://github.com/[username]/python-* への認証を PAT で通す
+# [username] と python- プレフィックスは実際のプロジェクトに合わせて変更すること
+git config --local \
+  url."https://github_pat_xxxx@github.com/[username]/python-".insteadOf \
+  "https://github.com/[username]/python-"
+```
+
+- `github_pat_xxxx` は実際の PAT に置き換える
+- `python-` のプレフィックス指定により `python-*` の全プライベートパッケージに一括適用される
+- `.git/config` に保存されるためコミットには含まれない（`.gitignore` 不要）
+- gitleaks 等の pre-commit フックで誤コミットも検出される
+
+### GitHub Actions CI
+
+#### 1. Secrets の登録
+
+リポジトリの **Settings → Secrets and variables → Actions → Repository secrets** に登録:
+
+| シークレット名 | 値 |
+|---|---|
+| `GH_TOKEN` | `github_pat_xxxx`（PAT の値そのもの） |
+
+#### 2. ci.yml への注入ステップ
+
+```yaml
+- name: pyproject.toml の git URL に PAT を注入（CI のみ・コミットされない）
+  run: |
+    # python-* プレフィックスのプライベートパッケージ URL に PAT を一括注入
+    sed -i \
+      "s|https://github.com/[username]/python-|https://${{ secrets.GH_TOKEN }}@github.com/[username]/python-|g" \
+      pyproject.toml
+```
+
+- `[username]` は実際の GitHub ユーザー名に置き換える
+- `sed` で `pyproject.toml` を一時書き換えるのみ。コミット・プッシュはされない
+- PAT が必要な private 依存が複数あっても `python-` プレフィックスで一括対応できる
+
+---
+
 ## ライセンス
 
 All Rights Reserved — [LICENSE](LICENSE)
