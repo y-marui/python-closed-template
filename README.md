@@ -6,7 +6,7 @@
 [![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
 
-AI-assisted development template for closed Python packages. Designed for Poetry + Claude Code + GitHub Copilot workflows. Small team (1–3 people).
+AI-assisted development template for closed Python packages. Designed for uv + Claude Code + GitHub Copilot workflows. Small team (1–3 people).
 
 ---
 
@@ -17,7 +17,7 @@ AI-assisted development template for closed Python packages. Designed for Poetry
 - ✅ **Security built-in**: pre-commit hooks (gitleaks, etc.) included
 - ✅ **Type-safe**: mypy strict mode enforced in CI
 - ✅ **CI ready**: GitHub Actions runs lint, type check, and tests automatically
-- ✅ **Poetry managed**: Dependencies, virtualenv, and packaging via Poetry
+- ✅ **uv managed**: Dependencies, virtualenv, and packaging via uv
 
 ---
 
@@ -26,7 +26,7 @@ AI-assisted development template for closed Python packages. Designed for Poetry
 ```sh
 git clone https://github.com/[user]/[repo].git
 cd [repo]
-poetry install
+uv sync
 
 # Copy security config files
 cp docs/dev-charter/.pre-commit-config.yaml .
@@ -74,7 +74,7 @@ Register in **Settings → Secrets and variables → Actions → Repository secr
 |---|---|
 | `GH_TOKEN` | `github_pat_xxxx` (the PAT value itself) |
 
-Add to `ci.yml` before `poetry install`:
+Add to `ci.yml` before `uv sync`:
 
 ```yaml
 - name: Inject PAT into pyproject.toml git URLs (CI only, not committed)
