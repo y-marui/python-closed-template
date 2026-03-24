@@ -4,7 +4,7 @@
 <!-- AI_CONTEXT.md を更新した場合はこのファイルも同一コミットで更新してください。 -->
 
 このリポジトリは AI支援開発用のクローズド Python アプリケーションテンプレートです。
-Poetry + Claude Code + GitHub Copilot 前提の開発体制。
+uv + Claude Code + GitHub Copilot 前提の開発体制。
 
 ---
 
@@ -17,7 +17,7 @@ Poetry + Claude Code + GitHub Copilot 前提の開発体制。
 | 項目 | 内容 |
 |---|---|
 | 言語 | Python `^3.11` |
-| パッケージ管理 | Poetry |
+| パッケージ管理 | uv |
 | テスト | pytest `^8` |
 | Linter | ruff `^0.3`（line-length=88、select: E/F/I） |
 | 型チェック | mypy `^1.8`（strict モード） |

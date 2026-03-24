@@ -6,7 +6,7 @@
 [![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
 
-Poetry + Claude Code + GitHub Copilot で Python パッケージを作るためのテンプレート。小規模チーム（1〜3人）向け。
+uv + Claude Code + GitHub Copilot で Python パッケージを作るためのテンプレート。小規模チーム（1〜3人）向け。
 
 ---
 
@@ -28,7 +28,7 @@ Poetry + Claude Code + GitHub Copilot で Python パッケージを作るため�
 - ✅ **セキュリティ内包**: pre-commit フック（gitleaks 等）をテンプレートに同梱
 - ✅ **型安全**: mypy strict モードで型エラーを CI でブロック
 - ✅ **CI 完備**: GitHub Actions で lint・型チェック・テストを自動実行
-- ✅ **Poetry 管理**: 依存関係・仮想環境・パッケージングを Poetry で一元管理
+- ✅ **uv 管理**: 依存関係・仮想環境・パッケージングを uv で一元管理
 
 ---
 
@@ -37,7 +37,7 @@ Poetry + Claude Code + GitHub Copilot で Python パッケージを作るため�
 | ツール | バージョン |
 |---|---|
 | Python | `^3.11` |
-| Poetry | 最新安定版 |
+| uv | 最新安定版 |
 | pre-commit | 最新安定版 |
 
 ---
@@ -49,7 +49,7 @@ Poetry + Claude Code + GitHub Copilot で Python パッケージを作るため�
 ```sh
 git clone https://github.com/[user]/[repo].git
 cd [repo]
-poetry install
+uv sync
 ```
 
 ### 2. セキュリティフックの設定
