@@ -3,8 +3,8 @@
 > **This file is the English reference.**
 > The canonical version (Japanese) is [README-jp.md](README-jp.md).
 
-[![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
+[![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
 
 AI-assisted development template for closed Python packages. Designed for uv + Claude Code + GitHub Copilot workflows. Small team (1–3 people).
 
@@ -91,3 +91,6 @@ See [README-jp.md](README-jp.md) for full details (Japanese canonical).
 ## License
 
 All Rights Reserved — [LICENSE](LICENSE)
+
+---
+*This document has a Japanese canonical version [README-jp.md](README-jp.md). Update both in the same commit when editing.*
