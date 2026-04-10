@@ -20,7 +20,7 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 | 言語 | Python `^3.11` |
 | パッケージ管理 | uv |
 | テスト | pytest `^8` |
-| Linter | ruff `^0.3`（line-length=88、select: E/F/I） |
+| Linter | ruff `^0.3`（line-length=88、select: E/F/I/UP） |
 | 型チェック | mypy `^1.8`（strict モード） |
 | CI | GitHub Actions（push / PR）|
 
@@ -107,6 +107,14 @@ API → Service → Repository → Storage
 4. `docs/architecture.md`（詳細が必要な場合のみ）
 5. `docs/guardrails.md`
 
+### 憲章の参照方法
+
+不明点が憲章（`docs/dev-charter/`）に関係する場合は全ファイルを検索せず、以下の手順で参照する：
+
+1. `docs/dev-charter/CHARTER_INDEX.md` を読み、該当トピックのファイルを特定する
+2. 特定したファイル（1〜2件）のみを読む
+3. 参照後にユーザーへ提案・確認を行う
+
 ### マネタイズ
 
 現時点でマネタイズ計画なし。計画が生じた場合は `MONETIZATION.md` を作成し、本ファイルに概要を追記すること。
@@ -150,10 +158,10 @@ pre-commit run --all-files
 ### CI パイプライン
 
 ```
-ruff check . → mypy src → pytest
+lint（ruff check / ruff format --check / mypy）→ test（pytest）→ build（インストール可能性確認）
 ```
 
-全て通過しないと PR はマージ不可。
+`build` が Branch Protection の必須ステータスチェック。全て通過しないと PR はマージ不可。
 
 ---
 

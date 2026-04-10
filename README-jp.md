@@ -3,8 +3,8 @@
 > **このファイルは正本（日本語版）です。**
 > 英語版（参照）は [README.md](README.md) を参照してください。
 
-[![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
+[![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
 
 uv + Claude Code + GitHub Copilot で Python パッケージを作るためのテンプレート。小規模チーム（1〜3人）向け。
 
@@ -209,3 +209,6 @@ git config --local \
 ## ライセンス
 
 All Rights Reserved — [LICENSE](LICENSE)
+
+---
+*この文書には英語版 [README.md](README.md) があります。編集時は同一コミットで更新してください。*
