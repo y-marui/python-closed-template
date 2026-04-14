@@ -5,6 +5,7 @@
 
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
 [![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
+[![Charter Check](https://github.com/y-marui/python-closed-template/actions/workflows/dev-charter-check.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/dev-charter-check.yml)
 
 uv + Claude Code + GitHub Copilot で Python パッケージを作るためのテンプレート。小規模チーム（1〜3人）向け。
 

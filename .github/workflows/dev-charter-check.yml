@@ -1,0 +1,15 @@
+name: Dev Charter
+on:
+  schedule:
+    - cron: "17 4 * * 1"  # 毎週月曜 4:17 UTC
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Check
+    uses: y-marui/dev-charter/.github/workflows/check-charter.yml@main
+    with:
+      fail_if_outdated: true
+    permissions:
+      contents: write
+      pull-requests: write

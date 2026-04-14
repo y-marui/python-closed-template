@@ -5,6 +5,7 @@
 
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
 [![CI](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/ci.yml)
+[![Charter Check](https://github.com/y-marui/python-closed-template/actions/workflows/dev-charter-check.yml/badge.svg)](https://github.com/y-marui/python-closed-template/actions/workflows/dev-charter-check.yml)
 
 AI-assisted development template for closed Python packages. Designed for uv + Claude Code + GitHub Copilot workflows. Small team (1–3 people).
 
