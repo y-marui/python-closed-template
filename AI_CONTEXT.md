@@ -179,6 +179,16 @@ lint（ruff check / ruff format --check / mypy）→ test（pytest）→ build�
 - Copilot の提案がプロジェクト規約に反する場合は無視し、Claude Code でレビュー後に採用
 - Gemini CLI は自動読み込み不可。使用時に手動でコンテキストを渡すこと
 
+### GitHub Operations
+
+Issue を作成する場合は、必ずリポジトリオーナーを `assignee` に設定する。
+
+```bash
+gh issue create --title "..." --body "..." --assignee @me
+```
+
+> `@me` はトークンのオーナーに解決されるため、ユーザー名のハードコードは不要。
+
 ---
 
 ## 禁止事項
