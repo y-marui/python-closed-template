@@ -7,11 +7,10 @@
 AI はセッション開始時に以下の順序でドキュメントを参照する：
 
 1. **AI_CONTEXT.md**（本ファイル：AI固有の指示・guardrails）
-2. **ai/context/**（coding_rules.md / module_index.md / dependency_graph.md）
-3. **README.md**（概要・セットアップ）
-4. **docs/architecture.md**（モジュール・コンポーネント構造）— 詳細が必要な場合のみ
-5. **docs/file-map.md**（ファイルレベルの依存関係）— 詳細が必要な場合のみ
-6. **docs/specification.md**（機能仕様・データフロー）— 詳細が必要な場合のみ
+2. **README.md**（概要・セットアップ）
+3. **docs/architecture.md**（モジュール・コンポーネント構造）— 詳細が必要な場合のみ
+4. **docs/file-map.md**（ファイルレベルの依存関係）— 詳細が必要な場合のみ
+5. **docs/specification.md**（機能仕様・データフロー）— 詳細が必要な場合のみ
 
 ---
 
@@ -40,10 +39,6 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 ```
 .
 ├── src/              # ソースコード（core / api / repository）
-├── ai/
-│   ├── context/      # AI が毎回読む要約・制約（coding_rules.md, module_index.md, dependency_graph.md）
-│   ├── tasks/        # タスク別プロンプトテンプレート
-│   └── review/       # レビューチェックリスト
 ├── docs/
 │   ├── architecture.md
 │   ├── specification.md
@@ -54,6 +49,14 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
     └── workflows/ci.yml
 ```
 
+### モジュール構成
+
+| モジュール | 役割 |
+|---|---|
+| `core` | ビジネスロジック |
+| `api` | HTTP インターフェース |
+| `repository` | データアクセス |
+
 ### アーキテクチャ（レイヤー依存方向）
 
 ```
@@ -61,6 +64,16 @@ API → Service → Repository → Storage
 ```
 
 逆依存・循環依存は禁止。
+
+---
+
+## コーディングルール
+
+- 可読性優先
+- 関数は50行以内
+- 単一責務
+- 循環依存禁止
+- コメントは「なぜそうするか」のみ書く（コードから自明な処理には書かない）
 
 ---
 
@@ -109,7 +122,6 @@ API → Service → Repository → Storage
 ### ドキュメント権限
 
 - `docs/` は人間が書き・読む仕様書。**AI は参照のみ、直接編集しない**
-- `ai/context/` は `docs/` の内容を AI 向けに要約したもの。`docs/` と重複する場合は `ai/context/` を優先する
 
 ### セキュリティフック（pre-commit）
 
@@ -175,6 +187,43 @@ gh issue create --title "..." --body "..." --assignee @me
 ```
 
 > `@me` はトークンのオーナーに解決されるため、ユーザー名のハードコードは不要。
+
+---
+
+## タスクテンプレート
+
+### バグ修正
+
+1. 再現確認
+2. エラーログ・スタックトレースを全文確認してから原因分析
+3. 原因特定（推測で修正しない。必要なら既存コードを確認）
+4. 修正方針を説明してから実装
+5. 最小修正
+6. テスト追加
+
+### 機能実装
+
+1. `docs/specification.md` 確認
+2. `docs/architecture.md` 確認
+3. 最小変更で実装
+4. テスト追加
+
+### テスト作成
+
+1. テスト対象の仕様を `docs/specification.md` で確認
+2. 正常系・異常系・境界値を洗い出す
+3. fixture は `tests/conftest.py` に定義
+4. モックは Protocol ベースで注入する
+5. テスト名は `test_<対象>_<条件>_<期待結果>` の形式
+
+---
+
+## レビューチェックリスト
+
+- 仕様準拠
+- テスト存在
+- 可読性
+- 依存関係問題なし
 
 ---
 
