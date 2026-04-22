@@ -93,12 +93,7 @@ make all   # lint + 型チェック + テストを一括実行
 
 ## 開発フロー
 
-```
-Issue 作成 → feature ブランチ → AI 実装 → PR → レビュー → main
-```
-
-ブランチ: `main` / `develop` / `feature/*`
-コミット形式: Conventional Commits（`feat` / `fix` / `refactor` / `docs` / `chore`）
+開発フロー・ブランチ戦略・コミット形式・コードレビューチェックリストは [CONTRIBUTING.md](CONTRIBUTING.md) を参照。
 
 ---
 
@@ -118,16 +113,16 @@ Issue 作成 → feature ブランチ → AI 実装 → PR → レビュー → 
 ├── docs/
 │   ├── specification.md  # システム仕様（人間が書く）
 │   ├── architecture.md   # アーキテクチャ設計（人間が書く）
-│   ├── guardrails.md     # AI 変更禁止範囲
-│   ├── development_rules.md  # 開発ルール詳細
+│   ├── file-map.md       # ファイルレベルの依存関係
+│   ├── ui-design.md      # UI 設計（UI がない場合は「該当なし」）
 │   └── dev-charter/      # 開発憲章（git subtree）
 ├── .github/
 │   ├── workflows/ci.yml
 │   ├── copilot-instructions.md
 │   └── pull_request_template.md
+├── CONTRIBUTING.md       # 開発フロー・命名規則・コードレビューチェックリスト
 ├── AI_CONTEXT.md         # AI コンテキスト（セッション開始時に参照）
 ├── CLAUDE.md             # Claude Code エントリポイント
-├── AI.md                 # AI ツール共通ガイド
 └── pyproject.toml
 ```
 
@@ -137,10 +132,11 @@ Issue 作成 → feature ブランチ → AI 実装 → PR → レビュー → 
 
 | ファイル | 内容 |
 |---|---|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | 開発フロー・命名規則・コードレビューチェックリスト |
 | [docs/specification.md](docs/specification.md) | システム仕様 |
 | [docs/architecture.md](docs/architecture.md) | アーキテクチャ設計 |
-| [docs/guardrails.md](docs/guardrails.md) | AI 変更禁止範囲 |
-| [docs/development_rules.md](docs/development_rules.md) | 開発ルール詳細 |
+| [docs/file-map.md](docs/file-map.md) | ファイルレベルの依存関係 |
+| [docs/ui-design.md](docs/ui-design.md) | UI 設計 |
 | [AI_CONTEXT.md](AI_CONTEXT.md) | AI コンテキスト（AI セッション開始時に参照） |
 
 ---

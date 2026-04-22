@@ -44,7 +44,7 @@ pre-commit run --all-files
 make all
 ```
 
-See [README-jp.md](README-jp.md) for full documentation.
+See [README-jp.md](README-jp.md) for full documentation. See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow.
 
 ---
 

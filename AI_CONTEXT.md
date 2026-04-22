@@ -2,6 +2,17 @@
 
 このファイルは Claude Code・GitHub Copilot など AI ツールがセッション開始時に参照する唯一のコンテキストファイルです。
 
+## ドキュメント参照順序
+
+AI はセッション開始時に以下の順序でドキュメントを参照する：
+
+1. **AI_CONTEXT.md**（本ファイル：AI固有の指示・guardrails）
+2. **ai/context/**（coding_rules.md / module_index.md / dependency_graph.md）
+3. **README.md**（概要・セットアップ）
+4. **docs/architecture.md**（モジュール・コンポーネント構造）— 詳細が必要な場合のみ
+5. **docs/file-map.md**（ファイルレベルの依存関係）— 詳細が必要な場合のみ
+6. **docs/specification.md**（機能仕様・データフロー）— 詳細が必要な場合のみ
+
 ---
 
 ## プロジェクト概要
@@ -36,8 +47,8 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 ├── docs/
 │   ├── architecture.md
 │   ├── specification.md
-│   ├── guardrails.md
-│   ├── development_rules.md
+│   ├── file-map.md
+│   ├── ui-design.md
 │   └── dev-charter/  # 開発憲章（参照元）
 └── .github/
     └── workflows/ci.yml
@@ -55,31 +66,15 @@ API → Service → Repository → Storage
 
 ## 適用する憲章原則
 
-### コード設計
-
-- **変更範囲は必要最小限**（over-engineering しない、YAGNI 原則）
-- **DRY の判断**: 2回の重複では抽象化しない、3回目で検討
-- **既存コードの再利用**: 新規実装前に類似機能がないか確認する
-- **既存パターンに従う**: 命名規則・ディレクトリ構造・アーキテクチャ
-- **TODO/FIXME を残さない**: 実装するか Issue に記録する
-
-### コードスタイル
-
-- 関数は50行以内、単一責務
-- コメントは「なぜそうするか」のみ書く（コードから自明な処理には書かない）
-- デバッグ用 `print` 文を本番コードに残さない
-
-### Git 運用
-
-- **ブランチ戦略**: `main` / `develop` / `feature/*`
-- **フロー**: Issue → feature ブランチ → AI 実装 → PR → レビュー
-- **コミット形式**: Conventional Commits（`feat` / `fix` / `refactor` / `docs` / `chore`）
-- **WIP 禁止**: 動作しないコードはコミットしない
+> 開発フロー・コードスタイル・命名規則・コードレビューチェックリストは [CONTRIBUTING.md](CONTRIBUTING.md) を参照。
 
 ### AI 行動原則
 
 - **Scope（スコープ厳守）**: 会話の主題・タスク・ゴールを AI が勝手に変更しない。話題変更はユーザーが明示するか、AI の提案をユーザーが許可した場合のみ
-- **Uncertainty（不明点の扱い）**: 重要な情報不足や曖昧さは質問する。軽微な不足は合理的な仮定で補い、仮定を明示する。推測で断定しない
+- **Uncertainty（不明点の扱い）**: 重要な情報不足や曖昧さは質問する。軽微な不足は合理的な仮定で補い、仮定を明示する。推測で断定しない。不明点は以下の順で対応する：
+  1. 推測しない
+  2. TODO を書く
+  3. Issue 提案
 - 不明点・未定項目は**作業前に1回でまとめて**質問する（推測で進めない）
   - **確認必須**: ゴール（完了条件）・言語/FW/バージョン制約・新規 or 既存コード修正・テストの要否・影響範囲
   - **確認不要（既存コードに合わせる）**: コードスタイル・ファイル配置・軽微な実装詳細
@@ -98,14 +93,6 @@ API → Service → Repository → Storage
 2. **プロジェクトコンテキスト**（本ファイル・以下の読み込みファイル群）
 3. **開発憲章**（`docs/dev-charter/`）
 4. **グローバルコンテキスト**
-
-### AI 読み込み順序
-
-1. `AI_CONTEXT.md`（本ファイル）
-2. `ai/context/`（全ファイル: coding_rules.md / module_index.md / dependency_graph.md）
-3. `docs/specification.md`（詳細が必要な場合のみ）
-4. `docs/architecture.md`（詳細が必要な場合のみ）
-5. `docs/guardrails.md`
 
 ### 憲章の参照方法
 
