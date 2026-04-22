@@ -123,7 +123,6 @@ make all   # lint + 型チェック + テストを一括実行
 ├── CONTRIBUTING.md       # 開発フロー・命名規則・コードレビューチェックリスト
 ├── AI_CONTEXT.md         # AI コンテキスト（セッション開始時に参照）
 ├── CLAUDE.md             # Claude Code エントリポイント
-├── AI.md                 # AI ツール共通ガイド
 └── pyproject.toml
 ```
 
