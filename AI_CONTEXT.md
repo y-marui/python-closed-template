@@ -6,10 +6,12 @@
 
 AI はセッション開始時に以下の順序でドキュメントを参照する：
 
-1. **README.md**（概要・セットアップ）
-2. **docs/architecture.md**（モジュール・コンポーネント構造）
-3. **docs/file-map.md**（ファイルレベルの依存関係）
-4. **docs/specification.md**（機能仕様・データフロー）
+1. **AI_CONTEXT.md**（本ファイル：AI固有の指示・guardrails）
+2. **ai/context/**（coding_rules.md / module_index.md / dependency_graph.md）
+3. **README.md**（概要・セットアップ）
+4. **docs/architecture.md**（モジュール・コンポーネント構造）— 詳細が必要な場合のみ
+5. **docs/file-map.md**（ファイルレベルの依存関係）— 詳細が必要な場合のみ
+6. **docs/specification.md**（機能仕様・データフロー）— 詳細が必要な場合のみ
 
 ---
 
@@ -88,14 +90,6 @@ API → Service → Repository → Storage
 2. **プロジェクトコンテキスト**（本ファイル・以下の読み込みファイル群）
 3. **開発憲章**（`docs/dev-charter/`）
 4. **グローバルコンテキスト**
-
-### AI 読み込み順序
-
-1. `AI_CONTEXT.md`（本ファイル）
-2. `ai/context/`（全ファイル: coding_rules.md / module_index.md / dependency_graph.md）
-3. `docs/architecture.md`（詳細が必要な場合のみ）
-4. `docs/file-map.md`（詳細が必要な場合のみ）
-5. `docs/specification.md`（詳細が必要な場合のみ）
 
 ### 憲章の参照方法
 
