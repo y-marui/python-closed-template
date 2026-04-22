@@ -2,6 +2,14 @@
 
 このファイルは Claude Code・GitHub Copilot など AI ツールがセッション開始時に参照する唯一のコンテキストファイルです。
 
+## ドキュメント参照順序
+
+AI はセッション開始時に以下の順序でドキュメントを参照する：
+
+1. **README-jp.md**（セットアップ・使い方・ドキュメント索引）
+2. **docs/**（詳細仕様・アーキテクチャ）
+3. **AI_CONTEXT.md**（本ファイル：AI固有の指示・開発ルール・guardrails・design decisions）
+
 ---
 
 ## プロジェクト概要
@@ -36,8 +44,6 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 ├── docs/
 │   ├── architecture.md
 │   ├── specification.md
-│   ├── guardrails.md
-│   ├── development_rules.md
 │   └── dev-charter/  # 開発憲章（参照元）
 └── .github/
     └── workflows/ci.yml
@@ -105,7 +111,6 @@ API → Service → Repository → Storage
 2. `ai/context/`（全ファイル: coding_rules.md / module_index.md / dependency_graph.md）
 3. `docs/specification.md`（詳細が必要な場合のみ）
 4. `docs/architecture.md`（詳細が必要な場合のみ）
-5. `docs/guardrails.md`
 
 ### 憲章の参照方法
 
@@ -123,7 +128,6 @@ API → Service → Repository → Storage
 
 - `docs/` は人間が書き・読む仕様書。**AI は参照のみ、直接編集しない**
 - `ai/context/` は `docs/` の内容を AI 向けに要約したもの。`docs/` と重複する場合は `ai/context/` を優先する
-
 ### セキュリティフック（pre-commit）
 
 以下の手順でセットアップする：

@@ -118,8 +118,6 @@ Issue 作成 → feature ブランチ → AI 実装 → PR → レビュー → 
 ├── docs/
 │   ├── specification.md  # システム仕様（人間が書く）
 │   ├── architecture.md   # アーキテクチャ設計（人間が書く）
-│   ├── guardrails.md     # AI 変更禁止範囲
-│   ├── development_rules.md  # 開発ルール詳細
 │   └── dev-charter/      # 開発憲章（git subtree）
 ├── .github/
 │   ├── workflows/ci.yml
@@ -139,8 +137,6 @@ Issue 作成 → feature ブランチ → AI 実装 → PR → レビュー → 
 |---|---|
 | [docs/specification.md](docs/specification.md) | システム仕様 |
 | [docs/architecture.md](docs/architecture.md) | アーキテクチャ設計 |
-| [docs/guardrails.md](docs/guardrails.md) | AI 変更禁止範囲 |
-| [docs/development_rules.md](docs/development_rules.md) | 開発ルール詳細 |
 | [AI_CONTEXT.md](AI_CONTEXT.md) | AI コンテキスト（AI セッション開始時に参照） |
 
 ---

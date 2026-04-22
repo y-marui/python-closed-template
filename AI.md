@@ -23,7 +23,6 @@
 2. ai/context/（全ファイル）
 3. docs/specification.md（詳細が必要な場合のみ）
 4. docs/architecture.md（詳細が必要な場合のみ）
-5. docs/guardrails.md
 
 ## AIルール
 - API仕様変更禁止（破壊的変更で他サービスに影響するため）
