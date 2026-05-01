@@ -24,8 +24,15 @@ AI-assisted development template for closed Python packages. Designed for uv + C
 
 ## Quick Start
 
+Click **Use this template → Create a new repository** on GitHub, or clone this repository.
+
 ```sh
-git clone https://github.com/[user]/[repo].git
+# Rename README templates for your project
+mv README_TEMPLATE-jp.md README-jp.md
+mv README_TEMPLATE.md README.md
+# Replace placeholders: {user}, {repo}, {workflow}, [USERNAME], [BMC_USERNAME]
+
+# Install dependencies
 cd [repo]
 uv sync
 

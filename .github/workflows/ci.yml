@@ -22,11 +22,15 @@ jobs:
   test:
     name: Test (pytest)
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]  # EOLまで6ヶ月以上あるバージョン
     steps:
       - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
+          python-version: ${{ matrix.python-version }}
       # プライベートパッケージ（pyproject.toml に https://github.com/[username]/python-* を含む場合）:
       # Repository secrets に GH_TOKEN（PAT の値）を登録したうえで以下のステップを追加してください。
       # PAT はソースにコミットせず secrets 経由で注入します。

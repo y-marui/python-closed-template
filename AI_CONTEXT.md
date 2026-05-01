@@ -77,6 +77,13 @@ API → Service → Repository → Storage
 
 ---
 
+## ドキュメント同期ルール
+
+仕様・ルール・構成に変更が生じたとき、変更と同じ作業内で関連ドキュメントを更新する。
+対象は `docs/` 内のファイルに限らず、`AI_CONTEXT.md`・`README.md` 等のルートファイルも含む。
+
+---
+
 ## 適用する憲章原則
 
 > 開発フロー・コードスタイル・命名規則・コードレビューチェックリストは [CONTRIBUTING.md](CONTRIBUTING.md) を参照。
@@ -122,6 +129,7 @@ API → Service → Repository → Storage
 ### ドキュメント権限
 
 - `docs/` は人間が書き・読む仕様書。**AI は参照のみ、直接編集しない**
+- `docs/dev-charter/` 配下のファイルは **直接編集しない**。変更が必要な場合は dev-charter リポジトリ本体に Issue を立て、`git subtree pull` でアップデートを取り込む
 
 ### セキュリティフック（pre-commit）
 
