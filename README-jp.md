@@ -45,15 +45,28 @@ uv + Claude Code + GitHub Copilot で Python パッケージを作るための�
 
 ## クイックスタート
 
-### 1. 依存関係のインストール
+GitHub の **Use this template** ボタン、または以下の手順でプロジェクトを作成する。
+
+### 1. テンプレートからリポジトリを作成
+
+GitHub の **Use this template → Create a new repository** をクリックしてリポジトリを作成する。
+
+### 2. README の初期設定
 
 ```sh
-git clone https://github.com/[user]/[repo].git
-cd [repo]
+# README_TEMPLATE-jp.md → README-jp.md にリネームして日本語正本に使う
+mv README_TEMPLATE-jp.md README-jp.md
+mv README_TEMPLATE.md README.md
+# プレースホルダを実際の値に置き換える（{user}・{repo}・{workflow}・[USERNAME]・[BMC_USERNAME] など）
+```
+
+### 3. 依存関係のインストール
+
+```sh
 uv sync
 ```
 
-### 2. セキュリティフックの設定
+### 4. セキュリティフックの設定
 
 ```sh
 # dev-charter から設定ファイルをコピー
@@ -70,7 +83,7 @@ git config core.hooksPath 2>/dev/null \
 pre-commit run --all-files
 ```
 
-### 3. 動作確認
+### 5. 動作確認
 
 ```sh
 make all   # lint + 型チェック + テストを一括実行
@@ -106,10 +119,6 @@ make all   # lint + 型チェック + テストを一括実行
 │   ├── api/              # HTTP インターフェース
 │   └── repository/       # データアクセス
 ├── tests/                # テストコード
-├── ai/
-│   ├── context/          # AI が毎回読む要約・制約
-│   ├── tasks/            # タスク別プロンプトテンプレート
-│   └── review/           # レビューチェックリスト
 ├── docs/
 │   ├── specification.md  # システム仕様（人間が書く）
 │   ├── architecture.md   # アーキテクチャ設計（人間が書く）
@@ -120,6 +129,8 @@ make all   # lint + 型チェック + テストを一括実行
 │   ├── workflows/ci.yml
 │   ├── copilot-instructions.md
 │   └── pull_request_template.md
+├── README_TEMPLATE-jp.md # プロジェクト化後の README 雛形（日本語正本）
+├── README_TEMPLATE.md    # プロジェクト化後の README 雛形（英語参照版）
 ├── CONTRIBUTING.md       # 開発フロー・命名規則・コードレビューチェックリスト
 ├── AI_CONTEXT.md         # AI コンテキスト（セッション開始時に参照）
 ├── CLAUDE.md             # Claude Code エントリポイント
@@ -133,6 +144,8 @@ make all   # lint + 型チェック + テストを一括実行
 | ファイル | 内容 |
 |---|---|
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 開発フロー・命名規則・コードレビューチェックリスト |
+| [README_TEMPLATE-jp.md](README_TEMPLATE-jp.md) | プロジェクト化後の README 雛形（日本語正本） |
+| [README_TEMPLATE.md](README_TEMPLATE.md) | プロジェクト化後の README 雛形（英語参照版） |
 | [docs/specification.md](docs/specification.md) | システム仕様 |
 | [docs/architecture.md](docs/architecture.md) | アーキテクチャ設計 |
 | [docs/file-map.md](docs/file-map.md) | ファイルレベルの依存関係 |
