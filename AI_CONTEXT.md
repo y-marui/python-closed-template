@@ -133,34 +133,20 @@ API → Service → Repository → Storage
 
 ### セキュリティフック（pre-commit）
 
-以下の手順でセットアップする：
-
-```sh
-# 1. セキュリティ設定ファイルを dev-charter からコピー
-cp docs/dev-charter/.pre-commit-config.yaml .
-cp docs/dev-charter/.gitleaks.toml .
-
-# 2. pre-commit フックをインストール
-#    core.hooksPath が設定済みの場合（グローバルフックが pre-commit を呼ぶ）は不要
-git config core.hooksPath 2>/dev/null \
-  && echo "core.hooksPath が設定されています。手順 3 に進んでください。" \
-  || pre-commit install
-
-# 3. 動作確認（core.hooksPath の有無にかかわらず必須）
-pre-commit run --all-files
-```
+セットアップ手順は `docs/dev-charter/SECURITY_POLICY.md` の「Setup Steps」を参照。
 
 以下が自動チェックされる：
 
 | チェック | ツール |
 |---|---|
-| シークレット漏洩検知 | gitleaks v8.21.2 |
+| シークレット漏洩検知 | gitleaks |
 | SSH 秘密鍵検知 | detect-private-key |
 | `.env` ファイルのコミットブロック | detect-dotenv（local hook） |
 | ローカル絶対パスのハードコード禁止 | no-hardcoded-local-paths |
 | 500KB 超えファイルブロック | check-added-large-files |
 | YAML/JSON 構文チェック | check-yaml / check-json |
 | Shell スクリプト検証 | shellcheck |
+| Markdown セクションヘッダの言語検証 | check-markdown-heading-language |
 
 ### CI パイプライン
 
@@ -174,17 +160,12 @@ lint（ruff check / ruff format --check / mypy）→ test（pytest）→ build�
 
 ## AI ツール分担
 
-| ツール | 担当範囲 |
-|---|---|
-| **Claude Code** | プロジェクト立ち上げ・大規模なコード変更・アーキテクチャ設計・リファクタリング提案 |
-| **GitHub Copilot** | バグ修正・細かな実装・コーディング補助・単体テスト作成 |
-| **Gemini CLI** | プライバシーポリシー・ストア説明文・審査用ドキュメント・プロジェクト全体のドキュメント管理 |
-
-### AI 並用時のルール
-
-- Claude Code 作業中は Copilot 提案を**参考程度**に（盲目的に受け入れない）
-- Copilot の提案がプロジェクト規約に反する場合は無視し、Claude Code でレビュー後に採用
-- Gemini CLI は自動読み込み不可。使用時に手動でコンテキストを渡すこと
+- **使用ツール**：Claude Code、GitHub Copilot、Gemini CLI
+- **標準担当の正本**：`docs/dev-charter/AI_COLLABORATION_RULES.md` の「AI Tool Responsibilities」と「Rules for Multi-AI Usage」
+- **プロジェクト固有の上書き**：
+  - GitHub Copilot：バグ修正・細かな実装・コーディング補助・単体テスト作成（標準担当より実装寄りの役割）
+  - Claude Code 作業中は Copilot 提案を参考程度に（盲目的に受け入れない）
+  - Gemini CLI は自動読み込み不可。使用時に手動でコンテキストを渡すこと
 
 ### GitHub Operations
 
