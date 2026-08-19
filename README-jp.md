@@ -11,7 +11,7 @@ uv + Claude Code + GitHub Copilot で Python パッケージを作るための�
 
 ---
 
-## メタ情報
+## Meta Info
 
 | 項目 | 内容 |
 |---|---|
@@ -22,7 +22,7 @@ uv + Claude Code + GitHub Copilot で Python パッケージを作るための�
 
 ---
 
-## 特徴
+## Features
 
 - ✅ **AI ファースト**: Claude Code・GitHub Copilot との協働を前提とした構成
 - ✅ **クローズドプロジェクト向け**: ドキュメント・コメントは日本語正本
@@ -33,7 +33,7 @@ uv + Claude Code + GitHub Copilot で Python パッケージを作るための�
 
 ---
 
-## 動作要件
+## Requirements
 
 | ツール | バージョン |
 |---|---|
@@ -43,15 +43,15 @@ uv + Claude Code + GitHub Copilot で Python パッケージを作るための�
 
 ---
 
-## クイックスタート
+## Quick Start
 
 GitHub の **Use this template** ボタン、または以下の手順でプロジェクトを作成する。
 
-### 1. テンプレートからリポジトリを作成
+### 1. Create a Repository from the Template
 
 GitHub の **Use this template → Create a new repository** をクリックしてリポジトリを作成する。
 
-### 2. README の初期設定
+### 2. Initial README Setup
 
 ```sh
 # README_TEMPLATE-jp.md → README-jp.md にリネームして日本語正本に使う
@@ -60,13 +60,13 @@ mv README_TEMPLATE.md README.md
 # プレースホルダを実際の値に置き換える（{user}・{repo}・{workflow}・[USERNAME]・[BMC_USERNAME] など）
 ```
 
-### 3. 依存関係のインストール
+### 3. Install Dependencies
 
 ```sh
 uv sync
 ```
 
-### 4. セキュリティフックの設定
+### 4. Set Up Security Hooks
 
 ```sh
 # dev-charter から設定ファイルをコピー
@@ -83,7 +83,7 @@ git config core.hooksPath 2>/dev/null \
 pre-commit run --all-files
 ```
 
-### 5. 動作確認
+### 5. Verify Setup
 
 ```sh
 make all   # lint + 型チェック + テストを一括実行
@@ -91,7 +91,7 @@ make all   # lint + 型チェック + テストを一括実行
 
 ---
 
-## コマンド一覧
+## Command Reference
 
 | コマンド | 内容 |
 |---|---|
@@ -104,13 +104,13 @@ make all   # lint + 型チェック + テストを一括実行
 
 ---
 
-## 開発フロー
+## Development Flow
 
 開発フロー・ブランチ戦略・コミット形式・コードレビューチェックリストは [CONTRIBUTING.md](CONTRIBUTING.md) を参照。
 
 ---
 
-## プロジェクト構造
+## Project Structure
 
 ```
 .
@@ -139,7 +139,7 @@ make all   # lint + 型チェック + テストを一括実行
 
 ---
 
-## ドキュメント索引
+## Document Index
 
 | ファイル | 内容 |
 |---|---|
@@ -154,7 +154,7 @@ make all   # lint + 型チェック + テストを一括実行
 
 ---
 
-## AI 支援開発
+## AI-Assisted Development
 
 `AI_CONTEXT.md` が存在します。AI ツールはセッション開始時にこのファイルを参照してください。
 
@@ -168,13 +168,13 @@ make all   # lint + 型チェック + テストを一括実行
 
 ---
 
-## プライベートパッケージの PAT 設定
+## Private Package PAT Configuration
 
 `pyproject.toml` に `https://github.com/` の private リポジトリを依存として記載する場合、
 PAT（Personal Access Token）が必要になることがある。
 **PAT はソースコードに書き込まない**こと。以下の方法で環境ごとに注入する。
 
-### ローカル開発環境（git config）
+### Local Development Environment (git config)
 
 ```sh
 # https://github.com/[username]/python-* への認証を PAT で通す
@@ -191,7 +191,7 @@ git config --local \
 
 ### GitHub Actions CI
 
-#### 1. Secrets の登録
+#### 1. Register Secrets
 
 リポジトリの **Settings → Secrets and variables → Actions → Repository secrets** に登録:
 
@@ -199,7 +199,7 @@ git config --local \
 |---|---|
 | `GH_TOKEN` | `github_pat_xxxx`（PAT の値そのもの） |
 
-#### 2. ci.yml への注入ステップ
+#### 2. Injection Step in ci.yml
 
 ```yaml
 - name: pyproject.toml の git URL に PAT を注入（CI のみ・コミットされない）
@@ -216,7 +216,7 @@ git config --local \
 
 ---
 
-## ライセンス
+## License
 
 All Rights Reserved — [LICENSE](LICENSE)
 
