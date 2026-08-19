@@ -1,6 +1,6 @@
 # UI Design
 
-## 該当なし
+## Not Applicable
 
 このプロジェクトは Python パッケージ（CLI / ライブラリ）であり、UI コンポーネントは存在しない。
 

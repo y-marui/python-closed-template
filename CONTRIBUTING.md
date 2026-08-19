@@ -4,13 +4,13 @@
 
 ---
 
-## 開発フロー
+## Development Flow
 
 ```
 Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コードレビュー → main
 ```
 
-### ブランチ戦略
+### Branch Strategy
 
 | ブランチ | 用途 |
 |---|---|
@@ -18,7 +18,7 @@ Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コー
 | `develop` | 開発統合ブランチ |
 | `feature/*` | 機能開発・バグ修正 |
 
-### コミット形式
+### Commit Format
 
 [Conventional Commits](https://www.conventionalcommits.org/) に従う。
 
@@ -34,7 +34,7 @@ Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コー
 
 ---
 
-## コード設計原則
+## Code Design Principles
 
 - **変更範囲は必要最小限**（over-engineering しない、YAGNI 原則）
 - **DRY の判断**: 2回の重複では抽象化しない、3回目で検討
@@ -44,7 +44,7 @@ Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コー
 
 ---
 
-## コードスタイル
+## Code Style
 
 - 関数は 50 行以内、単一責務
 - コメントは「なぜそうするか」のみ書く（コードから自明な処理には書かない）
@@ -52,7 +52,7 @@ Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コー
 
 ---
 
-## 命名規則
+## Naming Conventions
 
 | 対象 | 規則 | 例 |
 |---|---|---|
@@ -64,9 +64,9 @@ Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コー
 
 ---
 
-## コードレビューチェックリスト
+## Code Review Checklist
 
-### PR 作成者
+### PR Author
 
 - [ ] テストが全件通過している（`make all`）
 - [ ] 新機能にテストを追加した
@@ -74,7 +74,7 @@ Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コー
 - [ ] シークレット・ローカルパスがコードに含まれていない
 - [ ] AI が生成したコードをレビューしてからコミットした
 
-### レビュアー
+### Reviewer
 
 - [ ] ロジックが要件を満たしている
 - [ ] テストカバレッジが十分

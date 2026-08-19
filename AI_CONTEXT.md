@@ -2,7 +2,7 @@
 
 このファイルは Claude Code・GitHub Copilot など AI ツールがセッション開始時に参照する唯一のコンテキストファイルです。
 
-## ドキュメント参照順序
+## Document Reference Order
 
 AI はセッション開始時に以下の順序でドキュメントを参照する：
 
@@ -14,7 +14,7 @@ AI はセッション開始時に以下の順序でドキュメントを参照�
 
 ---
 
-## プロジェクト概要
+## Project Overview
 
 **目的**: AI支援開発用のクローズド Python アプリケーションテンプレート。
 uv + Claude Code + GitHub Copilot 前提の開発体制。
@@ -23,7 +23,7 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 
 **言語ポリシー**: クローズドプロジェクトのため、ドキュメント・コメントは**日本語**を正本とする。
 
-### 技術スタック
+### Tech Stack
 
 | 項目 | 内容 |
 |---|---|
@@ -34,7 +34,7 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 | 型チェック | mypy `^1.8`（strict モード） |
 | CI | GitHub Actions（push / PR）|
 
-### 主要ディレクトリ
+### Main Directories
 
 ```
 .
@@ -49,7 +49,7 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
     └── workflows/ci.yml
 ```
 
-### モジュール構成
+### Module Structure
 
 | モジュール | 役割 |
 |---|---|
@@ -57,7 +57,7 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 | `api` | HTTP インターフェース |
 | `repository` | データアクセス |
 
-### アーキテクチャ（レイヤー依存方向）
+### Architecture (Layer Dependency Direction)
 
 ```
 API → Service → Repository → Storage
@@ -67,7 +67,7 @@ API → Service → Repository → Storage
 
 ---
 
-## コーディングルール
+## Coding Rules
 
 - 可読性優先
 - 関数は50行以内
@@ -77,18 +77,18 @@ API → Service → Repository → Storage
 
 ---
 
-## ドキュメント同期ルール
+## Document Sync Rule
 
 仕様・ルール・構成に変更が生じたとき、変更と同じ作業内で関連ドキュメントを更新する。
 対象は `docs/` 内のファイルに限らず、`AI_CONTEXT.md`・`README.md` 等のルートファイルも含む。
 
 ---
 
-## 適用する憲章原則
+## Applied Charter Principles
 
 > 開発フロー・コードスタイル・命名規則・コードレビューチェックリストは [CONTRIBUTING.md](CONTRIBUTING.md) を参照。
 
-### AI 行動原則
+### AI Behavior Principles
 
 - **Scope（スコープ厳守）**: 会話の主題・タスク・ゴールを AI が勝手に変更しない。話題変更はユーザーが明示するか、AI の提案をユーザーが許可した場合のみ
 - **Uncertainty（不明点の扱い）**: 重要な情報不足や曖昧さは質問する。軽微な不足は合理的な仮定で補い、仮定を明示する。推測で断定しない。不明点は以下の順で対応する：
@@ -105,16 +105,16 @@ API → Service → Repository → Storage
 
 ---
 
-## プロジェクト固有ルール
+## Project-Specific Rules
 
-### AI コンテキスト優先順位
+### AI Context Priority
 
 1. **タスクコンテキスト**（Issue / Pull Request の内容）
 2. **プロジェクトコンテキスト**（本ファイル・以下の読み込みファイル群）
 3. **開発憲章**（`docs/dev-charter/`）
 4. **グローバルコンテキスト**
 
-### 憲章の参照方法
+### How to Reference the Charter
 
 不明点が憲章（`docs/dev-charter/`）に関係する場合は全ファイルを検索せず、以下の手順で参照する：
 
@@ -122,16 +122,16 @@ API → Service → Repository → Storage
 2. 特定したファイル（1〜2件）のみを読む
 3. 参照後にユーザーへ提案・確認を行う
 
-### マネタイズ
+### Monetization
 
 現時点でマネタイズ計画なし。計画が生じた場合は `MONETIZATION.md` を作成し、本ファイルに概要を追記すること。
 
-### ドキュメント権限
+### Document Permissions
 
 - `docs/` は人間が書き・読む仕様書。**AI は参照のみ、直接編集しない**
 - `docs/dev-charter/` 配下のファイルは **直接編集しない**。変更が必要な場合は dev-charter リポジトリ本体に Issue を立て、`git subtree pull` でアップデートを取り込む
 
-### セキュリティフック（pre-commit）
+### Security Hooks (pre-commit)
 
 セットアップ手順は `docs/dev-charter/SECURITY_POLICY.md` の「Setup Steps」を参照。
 
@@ -148,7 +148,7 @@ API → Service → Repository → Storage
 | Shell スクリプト検証 | shellcheck |
 | Markdown セクションヘッダの言語検証 | check-markdown-heading-language |
 
-### CI パイプライン
+### CI Pipeline
 
 ```
 security（pre-commit） / lint（ruff check / ruff format --check / mypy） / test（pytest）
@@ -160,7 +160,7 @@ docs-only の変更では `lint`/`test`/`build` は自動スキップされる�
 
 ---
 
-## AI ツール分担
+## AI Tool Assignments
 
 - **使用ツール**：Claude Code、GitHub Copilot、Gemini CLI
 - **標準担当の正本**：`docs/dev-charter/AI_COLLABORATION_RULES.md` の「AI Tool Responsibilities」と「Rules for Multi-AI Usage」
@@ -181,9 +181,9 @@ gh issue create --title "..." --body "..." --assignee @me
 
 ---
 
-## タスクテンプレート
+## Task Templates
 
-### バグ修正
+### Bug Fix
 
 1. 再現確認
 2. エラーログ・スタックトレースを全文確認してから原因分析
@@ -192,14 +192,14 @@ gh issue create --title "..." --body "..." --assignee @me
 5. 最小修正
 6. テスト追加
 
-### 機能実装
+### Feature Implementation
 
 1. `docs/specification.md` 確認
 2. `docs/architecture.md` 確認
 3. 最小変更で実装
 4. テスト追加
 
-### テスト作成
+### Writing Tests
 
 1. テスト対象の仕様を `docs/specification.md` で確認
 2. 正常系・異常系・境界値を洗い出す
@@ -209,7 +209,7 @@ gh issue create --title "..." --body "..." --assignee @me
 
 ---
 
-## レビューチェックリスト
+## Review Checklist
 
 - 仕様準拠
 - テスト存在
@@ -218,9 +218,9 @@ gh issue create --title "..." --body "..." --assignee @me
 
 ---
 
-## 禁止事項
+## Prohibited Actions
 
-### セキュリティ制約
+### Security Constraints
 
 - シークレット・APIキー・パスワード・トークンをコードにハードコードしない
 - `.env` ファイルをコミットしない（`.env.example` のみ許可）
@@ -228,7 +228,7 @@ gh issue create --title "..." --body "..." --assignee @me
 - **シークレットを含むファイルやコードを AI に渡さない**（プロンプト・コンテキストファイル含む）
 - AI が生成したコードは必ずレビューしてからコミットする
 
-### スコープ外変更の禁止
+### Out-of-Scope Changes Are Prohibited
 
 - **API レスポンス変更・エンドポイント削除**（破壊的変更禁止）
 - **ディレクトリ変更・モジュール移動**（アーキテクチャ一貫性のため）
