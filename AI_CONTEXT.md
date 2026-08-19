@@ -151,10 +151,12 @@ API → Service → Repository → Storage
 ### CI パイプライン
 
 ```
-lint（ruff check / ruff format --check / mypy）→ test（pytest）→ build（インストール可能性確認）
+security（pre-commit） / lint（ruff check / ruff format --check / mypy） / test（pytest）
+  → build（インストール可能性確認） → gate（Required Checks）
 ```
 
-`build` が Branch Protection の必須ステータスチェック。全て通過しないと PR はマージ不可。
+docs-only の変更では `lint`/`test`/`build` は自動スキップされる（`changes` job が判定）。
+`gate`（`Required Checks`）が Branch Protection の必須ステータスチェック。全て通過しないと PR はマージ不可。
 
 ---
 
