@@ -2,7 +2,7 @@
 
 モジュール・コンポーネント間の依存関係とエントリーポイントを記述する。
 
-## レイヤー依存方向
+## Layer Dependency Direction
 
 ```
 API → Service → Repository → Storage
@@ -10,7 +10,7 @@ API → Service → Repository → Storage
 
 逆依存・循環依存は禁止。
 
-## モジュール構成
+## Module Structure
 
 | モジュール | 役割 | エントリーポイント |
 |---|---|---|

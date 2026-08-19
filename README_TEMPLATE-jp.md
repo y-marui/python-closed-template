@@ -13,7 +13,7 @@
 
 ---
 
-## セットアップ
+## Setup
 
 ```sh
 git clone https://github.com/{user}/{repo}.git
@@ -23,7 +23,7 @@ uv sync
 
 ---
 
-## 使い方
+## Usage
 
 ```sh
 # 主なコマンド例
@@ -40,7 +40,7 @@ uv run python -m project_name
 
 ---
 
-## ライセンス
+## License
 
 All Rights Reserved — [LICENSE](LICENSE)
 
