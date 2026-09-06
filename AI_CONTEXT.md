@@ -25,14 +25,11 @@ uv + Claude Code + GitHub Copilot 前提の開発体制。
 
 ### Tech Stack
 
-| 項目 | 内容 |
-|---|---|
-| 言語 | Python `^3.11` |
-| パッケージ管理 | uv |
-| テスト | pytest `^8` |
-| Linter | ruff `^0.3`（line-length=88、select: E/F/I/UP） |
-| 型チェック | mypy `^1.8`（strict モード） |
-| CI | GitHub Actions（push / PR）|
+バージョン管理・パッケージ管理・Lint/Format・型チェックの一般方針は
+[docs/dev-charter/topics/python/PYTHON_DEV_ENV.md](docs/dev-charter/topics/python/PYTHON_DEV_ENV.md)
+を参照（CLI を実装する場合は
+[docs/dev-charter/topics/python/PYTHON_CLI.md](docs/dev-charter/topics/python/PYTHON_CLI.md) も参照）。
+CI（GitHub Actions）は push / PR のたびに実行する。
 
 ### Main Directories
 
