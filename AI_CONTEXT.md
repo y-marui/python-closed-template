@@ -125,7 +125,7 @@ API → Service → Repository → Storage
 
 ### Document Permissions
 
-- `docs/` は人間が書き・読む仕様書。**AI は参照のみ、直接編集しない**
+- `docs/` は人間・AI 共用の仕様書。AI も更新できるが、仕様・設計判断の変更はユーザーの依頼または提案への承認を経て記述する
 - `docs/dev-charter/` 配下のファイルは **直接編集しない**。変更が必要な場合は dev-charter リポジトリ本体に Issue を立て、`git subtree pull` でアップデートを取り込む
 
 ### Security Hooks (pre-commit)
