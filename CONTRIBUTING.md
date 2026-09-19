@@ -15,7 +15,6 @@ Issue 作成 → feature ブランチ → 実装（AI 支援）→ PR → コー
 | ブランチ | 用途 |
 |---|---|
 | `main` | リリース済みの安定版 |
-| `develop` | 開発統合ブランチ |
 | `feature/*` | 機能開発・バグ修正 |
 
 ### Commit Format
