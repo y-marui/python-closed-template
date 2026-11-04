@@ -162,7 +162,6 @@ make all   # lint + 型チェック + テストを一括実行
 |---|---|
 | Claude Code | プロジェクト立ち上げ・大規模変更・設計 |
 | GitHub Copilot | バグ修正・補助実装・単体テスト |
-| Gemini CLI | ドキュメント・ストア申請系（手動で渡す） |
 
 詳細: [AI_CONTEXT.md](AI_CONTEXT.md)
 
