@@ -116,19 +116,24 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the development flow, branching strat
 
 ```
 .
-├── src/                  # Source code
-│   ├── core/             # Business logic
-│   ├── api/              # HTTP interface
-│   └── repository/       # Data access
-├── tests/                # Test code
+├── src/
+│   └── project_name/     # Package (rename when turning the template into a project)
+├── tests/
+│   ├── unit/             # Unit tests
+│   ├── integration/      # Integration tests
+│   └── conftest.py       # Shared fixtures
+├── examples/
+│   └── patterns/         # Implementation pattern examples
 ├── docs/
 │   ├── specification.md  # System specification (written by humans)
 │   ├── architecture.md   # Architecture design (written by humans)
 │   ├── file-map.md       # File-level dependencies
 │   ├── ui-design.md      # UI design ("N/A" if there is no UI)
 │   └── dev-charter/      # Development charter (git subtree)
+├── scripts/              # pre-commit hook and branch-creation scripts
 ├── .github/
-│   ├── workflows/ci.yml
+│   ├── workflows/        # ci.yml, dev-charter-check.yml, auto-assign-self.yml
+│   ├── ISSUE_TEMPLATE/
 │   ├── copilot-instructions.md
 │   └── pull_request_template.md
 ├── README_TEMPLATE-jp.md # README template for new projects (Japanese canonical)
@@ -136,6 +141,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the development flow, branching strat
 ├── CONTRIBUTING.md       # Development flow, naming rules, code review checklist
 ├── AI_CONTEXT.md         # AI context (read at the start of a session)
 ├── CLAUDE.md             # Claude Code entry point
+├── Makefile              # Development commands
 └── pyproject.toml
 ```
 
