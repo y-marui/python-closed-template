@@ -171,12 +171,11 @@ docs-only の変更では `lint`/`test`/`build` は自動スキップされる�
 
 ## AI Tool Assignments
 
-- **使用ツール**：Claude Code、GitHub Copilot、Gemini CLI
+- **使用ツール**：Claude Code、GitHub Copilot
 - **標準担当の正本**：`docs/dev-charter/AI_COLLABORATION_RULES.md` の「AI Tool Responsibilities」と「Rules for Multi-AI Usage」
 - **プロジェクト固有の上書き**：
   - GitHub Copilot：バグ修正・細かな実装・コーディング補助・単体テスト作成（標準担当より実装寄りの役割）
   - Claude Code 作業中は Copilot 提案を参考程度に（盲目的に受け入れない）
-  - Gemini CLI は自動読み込み不可。使用時に手動でコンテキストを渡すこと
 
 ### GitHub Operations
 

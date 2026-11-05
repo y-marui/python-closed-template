@@ -55,6 +55,19 @@ See [README-jp.md](README-jp.md) for full documentation. See [CONTRIBUTING.md](C
 
 ---
 
+## AI-Assisted Development
+
+`AI_CONTEXT.md` exists. AI tools should read it at the start of a session.
+
+| Tool | Role |
+|---|---|
+| Claude Code | Project setup, large changes, design |
+| GitHub Copilot | Bug fixes, supporting implementation, unit tests |
+
+Details: [AI_CONTEXT.md](AI_CONTEXT.md)
+
+---
+
 ## Private Package PAT Configuration
 
 When `pyproject.toml` references private GitHub repositories, a PAT (Personal Access Token) may be required.
