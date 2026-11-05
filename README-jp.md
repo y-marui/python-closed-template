@@ -116,19 +116,24 @@ make all   # lint + 型チェック + テストを一括実行
 
 ```
 .
-├── src/                  # ソースコード
-│   ├── core/             # ビジネスロジック
-│   ├── api/              # HTTP インターフェース
-│   └── repository/       # データアクセス
-├── tests/                # テストコード
+├── src/
+│   └── project_name/     # パッケージ（プロジェクト化時に名前を変更する）
+├── tests/
+│   ├── unit/             # ユニットテスト
+│   ├── integration/      # 結合テスト
+│   └── conftest.py       # 共通 fixture
+├── examples/
+│   └── patterns/         # 実装パターンの例
 ├── docs/
 │   ├── specification.md  # システム仕様（人間が書く）
 │   ├── architecture.md   # アーキテクチャ設計（人間が書く）
 │   ├── file-map.md       # ファイルレベルの依存関係
 │   ├── ui-design.md      # UI 設計（UI がない場合は「該当なし」）
 │   └── dev-charter/      # 開発憲章（git subtree）
+├── scripts/              # pre-commit フック・ブランチ作成スクリプト
 ├── .github/
-│   ├── workflows/ci.yml
+│   ├── workflows/        # ci.yml, dev-charter-check.yml, auto-assign-self.yml
+│   ├── ISSUE_TEMPLATE/
 │   ├── copilot-instructions.md
 │   └── pull_request_template.md
 ├── README_TEMPLATE-jp.md # プロジェクト化後の README 雛形（日本語正本）
@@ -136,6 +141,7 @@ make all   # lint + 型チェック + テストを一括実行
 ├── CONTRIBUTING.md       # 開発フロー・命名規則・コードレビューチェックリスト
 ├── AI_CONTEXT.md         # AI コンテキスト（セッション開始時に参照）
 ├── CLAUDE.md             # Claude Code エントリポイント
+├── Makefile              # 開発コマンド
 └── pyproject.toml
 ```
 
